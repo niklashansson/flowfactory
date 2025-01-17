@@ -1,0 +1,294 @@
+Adds
+  asteriks
+  to
+  required
+  input
+  fields
+  label:has(+ :is(input[required], textarea[required]))::after {
+  content: ' *';
+  color: red;
+  font-weight: bold;
+}
+
+/* field placeholder */
+.hs-form input::placeholder,
+.hs-form textarea::placeholder {
+  transition-property: color;
+  transition-duration: 200ms;
+  color: color-mix(in srgb, var(--base--foreground) 70%, transparent);
+}
+
+/* field focus */
+.w-input:focus,
+.w-select:focus {
+  border-color: var(--base--border);
+  color: var(--base--foreground);
+}
+
+.w-input:focus::placeholder {
+  color: transparent;
+  transition-property: color;
+  transition-duration: 200ms;
+}
+
+.hs-form :is(input, textarea) {
+  -webkit-appearance: none;
+  border-radius: var(--base--radius);
+}
+
+.hs-form .hs-field-desc {
+  font-size: 0.875rem;
+}
+
+.hs-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1.25rem;
+  font-family: var(--font-family--primary);
+  font-size: 0.875rem;
+}
+
+.hs-form :is(label) {
+  font-weight: 600;
+  margin-bottom: 0rem;
+}
+
+.hs-form ul {
+  list-style: none;
+  padding-left: 0rem;
+}
+
+.hs-form .hs-error-msgs {
+  margin-bottom: 0rem;
+}
+.hs-form .hs-error-msg {
+  color: red;
+  font-weight: 500;
+}
+
+.hs-form :is(.form-columns-1, .form-columns-2, .form-columns-3) {
+  width: 100%;
+  max-width: none;
+}
+
+:is(.form-columns-1, .form-columns-2, .form-columns-3) .hs-form-field {
+  width: 100% !important;
+}
+
+/* 3 column rows */
+.hs-form .form-columns-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* 2 column rows */
+.hs-form .form-columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.hs-form .input {
+  margin: 0rem !important;
+}
+
+.hs-form .hs-form-required {
+  color: red;
+  font-weight: bold;
+}
+
+.hs-form
+  input:not([type='image']):not([type='submit']):not([type='button']):not([type='radio']):not(
+    [type='checkbox']
+  ):not([type='file']),
+select,
+textarea {
+  /* padding: 0rem !important; */
+  background-color: transparent;
+  min-height: 3rem;
+  border: 1px solid var(--base--border);
+  width: 100% !important;
+  font-weight: 400;
+  transition-duration: 150ms;
+  transition-property: all;
+  padding-block: 0rem;
+  padding-inline: 0rem;
+}
+
+.hs-form
+  input:focus:not([type='image']):not([type='button']):not([type='radio']):not(
+    [type='checkbox']
+  ):not([type='file']),
+select:focus,
+textarea:focus {
+  border-color: var(--base--border);
+  color: var(--base--foreground);
+  outline: none;
+}
+
+.hs-form textarea {
+  min-height: 6rem;
+  margin-top: 0.75rem;
+}
+
+.hs-form .hs-richtext {
+  font-family: var(--font-family--primary);
+  color: var(--base--foreground);
+}
+
+/* checkbox and radio buttons */
+.hs-form .input input[type='checkbox'],
+.hs-form .input input[type='radio'] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  /* Custom checkbox */
+  font: inherit;
+  color: var(--base--foreground);
+  width: 1.25rem !important;
+  height: 1.25rem;
+  border: 1px solid currentColor;
+  border-radius: 0.175rem;
+  border-color: var(--base--border);
+  transform: translateY(-0.075rem);
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hs-form .input input[type='checkbox']:focus,
+.hs-form .input input[type='radio']:focus {
+  -webkit-appearance: none;
+  outline-width: 2px;
+  outline-color: var(--base--primary);
+  outline-offset: 0.5px;
+}
+
+.hs-form .input input[type='checkbox']::before,
+.hs-form .input input[type='radio']::before {
+  content: '';
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: scale(0);
+  transition: 50ms transform ease-in-out;
+  /* box-shadow: inset 1rem 1rem black; */
+  background-color: var(--base--primary);
+  background-image: url('https://cdn.prod.website-files.com/673465721b3bde53fcaa44dc/67449ac3447b79fdfce5aa09_checkbox-check.svg');
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.hs-form :is(.hs-form-checkbox, .hs-form-booleancheckbox, .hs-form-radio) label {
+  color: var(--base--foreground);
+  font-family: var(--font-family--primary);
+  font-weight: 400;
+  line-height: 1.3;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.625rem;
+  cursor: pointer;
+}
+
+.hs-form :is(.hs-form-checkbox, .hs-form-booleancheckbox, .hs-form-radio) label p {
+  font-size: 0.875rem;
+}
+
+.hs-form .hs-form-booleancheckbox-display span {
+  margin-left: 0rem !important;
+}
+
+.hs-form .input ul[role='checkbox'] {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+}
+
+.hs-form .input input[type='checkbox']:checked::before,
+.hs-form .input input[type='radio']:checked::before {
+  transform: scale(1);
+}
+
+.hs-form .hs-fieldtype-checkbox,
+.hs-fieldtype-radio {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 0.5rem;
+}
+
+/* radio button customizations */
+.hs-form .input input[type='radio'] {
+  border-radius: 50%;
+}
+
+.hs-form .input input[type='radio']::before {
+  background-image: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+/* button */
+.hs-form .hs-button {
+  background-color: var(--base--primary);
+  color: var(--base--primary-foreground);
+  border-color: var(--base--primary-border);
+  border-radius: 0.5rem;
+  font-family: var(--font-family--primary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.625rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.15s,
+    border-color 0.15s,
+    background-color 0.15s;
+  display: inline-block;
+  border-style: solid;
+}
+
+.hs-form .hs-button:hover,
+.hs-form .hs-button:focus-visible,
+.hs-form .hs-button:focus {
+}
+
+.hs-form .legal-consent-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+input:-internal-autofill-selected {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* 3 column rows */
+  .hs-form .form-columns-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* 2 column rows */
+  .hs-form .form-columns-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

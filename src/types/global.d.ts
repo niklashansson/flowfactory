@@ -9,6 +9,8 @@ declare global {
     fsAttributes: FsAttributes;
     FsAttributes: FsAttributes;
   }
+
+  type hbspt = unknown;
 }
 
 type FsAttributesCallback =
