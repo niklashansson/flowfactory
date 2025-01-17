@@ -1,6 +1,10 @@
-import { createInsight1Swipers } from '$utils/insights-1-swiper';
+import { createInsightsCmsSwipers } from '$utils/create-insights-cms-swipers';
+import { createInsightsSwipers } from '$utils/create-insights-swipers';
+import { createTestimonialsSwipers } from '$utils/create-testimonials-swipers';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  createInsight1Swipers();
+  createInsightsCmsSwipers();
+  createInsightsSwipers();
+  createTestimonialsSwipers();
 });
