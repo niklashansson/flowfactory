@@ -7,8 +7,6 @@ import { createSwiper } from './create-swiper';
 const INSTANCE_QUERY = '[data-swiper-instance="insights-1"]';
 
 export function createInsightsCmsSwipers() {
-  window.fsAttributes.cmscombine.init?.();
-
   window.fsAttributes.push(
     [
       'cmscombine',
